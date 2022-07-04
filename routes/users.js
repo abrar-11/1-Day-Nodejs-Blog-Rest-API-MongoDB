@@ -70,14 +70,11 @@ router.get("/:id", async (req, res) => {
    try {
       const user = await User.findById(req.params.id);
       const { password, ...data } = user._doc;
-      res.status(200).json({ success: true ,data: data });
-
+      res.status(200).json({ success: true, data: data });
    } catch (err) {
       console.log("second Catch", err);
       res.status(401).json({ error: "No User Found .." });
    }
 });
-
-
 
 module.exports = router;
